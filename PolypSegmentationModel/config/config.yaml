@@ -1,0 +1,63 @@
+model:
+  decode_channels: 64     # Number of output channels after decoder
+  pretrained: true        # Whether to use a pretrained backbone
+  num_classes: 1          # Number of output classes (1 for binary segmentation)
+  window_size: 8          # Used if model involes window-based attention
+
+data:
+
+  workers_per_gpu: 4       
+  img_size: 256           # Target size for image resizing
+  batch_size: 32          # Batch size for training and testing
+
+
+  train:
+    img_root: './data/TrainDataset/images/'   # Training images directory
+    anno_root: '/data/TrainDataset/masks/'    # Training masks directory
+
+  
+  test:
+    datasets:
+      - name: CVC-300
+        img1_root: './data/TestDataset/CVC-300/images/'
+        anno1_root: './data/TestDataset/CVC-300/masks/'
+
+      - name: CVC-ClinicDB
+        img2_root: './data/TestDataset/CVC-ClinicDB/images/'
+        anno2_root: './data/TestDataset/CVC-ClinicDB/masks/'
+      
+      - name: CVC-ColonDB
+        img3_root: './data/TestDataset/CVC-ColonDB/images/'
+        anno3_root: './data/TestDataset/CVC-ColonDB/masks/'
+      
+      - name: ETIS-LaribPolypDB
+        img4_root: './data/TestDataset/ETIS-LaribPolypDB/images/'
+        anno4_root: './data/TestDataset/ETIS-LaribPolypDB/masks/'
+      
+      - name: Kvasir
+        img5_root: './data/TestDataset/Kvasir/images/'
+        anno5_root: './data/TestDataset/Kvasir/masks/'
+
+
+optimizer:
+  type: 'Adam'            # Optimizer type
+  lr: 1e-3                # Learning rate
+  weight_decay: 1e-3      # Optinal: regularization (L2 penalty)
+
+optimize_config:          
+  grad_clip:
+    max_norm: 40          # Maximum norm for gradient clipping
+    norm_type: 2          # Type of norm to use (2 = L2 norm)
+
+
+lr_scheduler:     
+  type: 'cosine_lr'       # Learning rate schedule
+  warmup_epochs: 5        # Optional: number of warmup epochs
+
+train:
+  num_epochs: 50          # Total training epochs
+  work_dir: './workdirs/' # Working directory for logs, checkpoints
+  threshold: 5e-1         # Threshold for segmentation prediction
+  save_path: './runs.pt'  # Path to save final model weights
+  device: 0               # CUDA device index
+
