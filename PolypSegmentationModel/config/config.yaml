@@ -12,31 +12,31 @@ data:
 
 
   train:
-    img_root: './data/TrainDataset/images/'   # Training images directory
-    anno_root: '/data/TrainDataset/masks/'    # Training masks directory
+    img_root: './datasets/TrainDataset/images/'   # Training images directory
+    anno_root: '/datasets/TrainDataset/masks/'    # Training masks directory
 
-  
+
   test:
     datasets:
       - name: CVC-300
-        img1_root: './data/TestDataset/CVC-300/images/'
-        anno1_root: './data/TestDataset/CVC-300/masks/'
+        img1_root: './datasets/TestDataset/CVC-300/images/'
+        anno1_root: './datasets/TestDataset/CVC-300/masks/'
 
       - name: CVC-ClinicDB
-        img2_root: './data/TestDataset/CVC-ClinicDB/images/'
-        anno2_root: './data/TestDataset/CVC-ClinicDB/masks/'
+        img2_root: './datasets/TestDataset/CVC-ClinicDB/images/'
+        anno2_root: './datasets/TestDataset/CVC-ClinicDB/masks/'
       
       - name: CVC-ColonDB
-        img3_root: './data/TestDataset/CVC-ColonDB/images/'
-        anno3_root: './data/TestDataset/CVC-ColonDB/masks/'
+        img3_root: './datasets/TestDataset/CVC-ColonDB/images/'
+        anno3_root: './datasets/TestDataset/CVC-ColonDB/masks/'
       
       - name: ETIS-LaribPolypDB
-        img4_root: './data/TestDataset/ETIS-LaribPolypDB/images/'
-        anno4_root: './data/TestDataset/ETIS-LaribPolypDB/masks/'
+        img4_root: './datasets/TestDataset/ETIS-LaribPolypDB/images/'
+        anno4_root: './datasets/TestDataset/ETIS-LaribPolypDB/masks/'
       
       - name: Kvasir
-        img5_root: './data/TestDataset/Kvasir/images/'
-        anno5_root: './data/TestDataset/Kvasir/masks/'
+        img5_root: './datasets/TestDataset/Kvasir/images/'
+        anno5_root: './datasets/TestDataset/Kvasir/masks/'
 
 
 optimizer:
